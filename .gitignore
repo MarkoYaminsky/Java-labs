@@ -30,4 +30,8 @@ hs_err_pid*
 .c9/
 *.launch
 .settings/
+<<<<<<< HEAD
 *.sublime-workspace
+=======
+*.sublime-workspace
+>>>>>>> af2e6ad024934f033e56f4364c68955578ae3e2b
