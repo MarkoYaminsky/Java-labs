@@ -2,8 +2,12 @@ package ua.lviv.iot.GoodsForCreativity;
 
 import ua.lviv.iot.GoodsForCreativity.managers.impl.GoodsManager;
 import ua.lviv.iot.GoodsForCreativity.models.ConstructorToy;
+import ua.lviv.iot.GoodsForCreativity.models.GoodsForCreativity;
 import ua.lviv.iot.GoodsForCreativity.models.PaintsSet;
 import ua.lviv.iot.GoodsForCreativity.models.PlasticineSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -17,13 +21,16 @@ public class Main {
         System.out.println(ipcClassic);
 
         GoodsManager rozetka = new GoodsManager();
+        List<GoodsForCreativity> goodsList = new ArrayList<>();
 
-        rozetka.addGood(scentosAquarelle);
-        rozetka.addGood(legoHospital);
-        rozetka.addGood(ipcClassic);
+        rozetka.addGood(scentosAquarelle, goodsList);
+        rozetka.addGood(legoHospital, goodsList);
+        rozetka.addGood(ipcClassic, goodsList);
 
-        System.out.println(rozetka.findGoodByPrice());
-        System.out.println(rozetka.findGoodByProducerName());
+        System.out.println(rozetka.sortGoodByPrice(goodsList));
+        System.out.println(rozetka.sortGoodByProducerName(goodsList));
+        System.out.println(rozetka.sortGoodByPriceReversed(goodsList));
+        System.out.println(rozetka.sortGoodByProducerNameReversed(goodsList));
     }
 
 }

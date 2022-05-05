@@ -14,11 +14,11 @@ public abstract class GoodsForCreativity {
         this.mayBeDangerous = mayBeDangerous;
     }
 
-    public String getProducerName() {
-        return producerName;
-    }
+    public String getProducerName() { return producerName; }
 
     public double getPrice() {
         return price;
     }
+
+    public boolean getMayBeDangerous() { return mayBeDangerous; }
 }
