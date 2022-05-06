@@ -6,10 +6,9 @@ import ua.lviv.iot.GoodsForCreativity.models.GoodsForCreativity;
 import ua.lviv.iot.GoodsForCreativity.models.PaintsSet;
 import ua.lviv.iot.GoodsForCreativity.models.PlasticineSet;
 
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,10 +32,8 @@ class GoodsManagerTest {
         goodsList.add(ipcClassic);
         goodsList.add(legoHospital);
         goodsList = goodsManager.sortGoodByProducerName(goodsList);
-        goodsManager.sortGoodByProducerName(goodsList);
-        assertEquals(goodsList.stream()
-                .sorted(Comparator.comparing(GoodsForCreativity::getProducerName))
-                .collect(Collectors.toList()), goodsList);
+        List<GoodsForCreativity> testList = Arrays.asList(ipcClassic, legoHospital, scentosAquarelle);
+        assertEquals(testList, goodsList);
     }
 
     @Test
@@ -45,10 +42,8 @@ class GoodsManagerTest {
         goodsList.add(ipcClassic);
         goodsList.add(legoHospital);
         goodsList = goodsManager.sortGoodByProducerNameReversed(goodsList);
-        goodsManager.sortGoodByProducerNameReversed(goodsList);
-        assertEquals(goodsList.stream()
-                .sorted(Comparator.comparing(GoodsForCreativity::getProducerName).reversed())
-                .collect(Collectors.toList()), goodsList);
+        List<GoodsForCreativity> testList = Arrays.asList(scentosAquarelle, legoHospital, ipcClassic);
+        assertEquals(testList, goodsList);
     }
 
     @Test
@@ -57,10 +52,8 @@ class GoodsManagerTest {
         goodsList.add(ipcClassic);
         goodsList.add(legoHospital);
         goodsList = goodsManager.sortGoodByPrice(goodsList);
-        goodsManager.sortGoodByProducerName(goodsList);
-        assertEquals(goodsList.stream()
-                .sorted(Comparator.comparing(GoodsForCreativity::getPrice))
-                .collect(Collectors.toList()), goodsList);
+        List<GoodsForCreativity> testList = Arrays.asList(ipcClassic, scentosAquarelle, legoHospital);
+        assertEquals(testList, goodsList);
     }
 
     @Test
@@ -69,9 +62,7 @@ class GoodsManagerTest {
         goodsList.add(ipcClassic);
         goodsList.add(legoHospital);
         goodsList = goodsManager.sortGoodByPriceReversed(goodsList);
-        goodsManager.sortGoodByProducerName(goodsList);
-        assertEquals(goodsList.stream()
-                .sorted(Comparator.comparing(GoodsForCreativity::getPrice).reversed())
-                .collect(Collectors.toList()), goodsList);
+        List<GoodsForCreativity> testList = Arrays.asList(legoHospital, scentosAquarelle, ipcClassic);
+        assertEquals(testList, goodsList);
     }
 }
