@@ -1,6 +1,7 @@
 package ua.lviv.iot.GoodsForCreativity;
 
 import ua.lviv.iot.GoodsForCreativity.managers.impl.GoodsManager;
+import ua.lviv.iot.GoodsForCreativity.managers.impl.GoodsWriter;
 import ua.lviv.iot.GoodsForCreativity.models.ConstructorToy;
 import ua.lviv.iot.GoodsForCreativity.models.GoodsForCreativity;
 import ua.lviv.iot.GoodsForCreativity.models.PaintsSet;
@@ -31,6 +32,9 @@ public class Main {
         System.out.println(rozetka.sortGoodByProducerName(goodsList));
         System.out.println(rozetka.sortGoodByPriceReversed(goodsList));
         System.out.println(rozetka.sortGoodByProducerNameReversed(goodsList));
+
+        GoodsWriter table = new GoodsWriter();
+        table.writeCSV(goodsList);
     }
 
 }

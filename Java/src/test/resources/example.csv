@@ -1,0 +1,6 @@
+producerName, price, mayBeDangerous, paintsQuantity, paintsType
+Scentos, 883.0, true, 24, Watercolor
+producerName, price, mayBeDangerous, difficultyRating, constructionType
+LEGO, 1700.0, false, 8, Hospital
+producerName, price, mayBeDangerous, coloursQuantity, plasticineType
+IPC, 300.0, true, 10, classic

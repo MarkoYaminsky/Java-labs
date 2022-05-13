@@ -21,4 +21,12 @@ public abstract class GoodsForCreativity {
     }
 
     public boolean getMayBeDangerous() { return mayBeDangerous; }
+
+    public String getHeaders() {
+        return "producerName, price, mayBeDangerous";
+    }
+
+    public String toCSV() {
+        return String.format("%s, %s, %s", getProducerName(), getPrice(), getMayBeDangerous());
+    }
 }
