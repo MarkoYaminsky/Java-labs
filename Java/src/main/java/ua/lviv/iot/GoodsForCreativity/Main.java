@@ -2,6 +2,7 @@ package ua.lviv.iot.GoodsForCreativity;
 
 import ua.lviv.iot.GoodsForCreativity.managers.impl.GoodsManager;
 import ua.lviv.iot.GoodsForCreativity.managers.impl.GoodsWriter;
+import ua.lviv.iot.GoodsForCreativity.managers.impl.Searcher;
 import ua.lviv.iot.GoodsForCreativity.models.ConstructorToy;
 import ua.lviv.iot.GoodsForCreativity.models.GoodsForCreativity;
 import ua.lviv.iot.GoodsForCreativity.models.PaintsSet;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         PaintsSet scentosAquarelle = new PaintsSet("Scentos", 883, 24, "Watercolor");
         ConstructorToy legoHospital = new ConstructorToy("LEGO", 1700.0, 8, "Hospital");
         PlasticineSet ipcClassic = new PlasticineSet("IPC", 300, 10, "classic");
@@ -33,8 +35,12 @@ public class Main {
         System.out.println(rozetka.sortGoodByPriceReversed(goodsList));
         System.out.println(rozetka.sortGoodByProducerNameReversed(goodsList));
 
-        GoodsWriter table = new GoodsWriter();
-        table.writeCSV(goodsList);
+        String text = "Do I love Java or python more? In the beginning of Java lessons I was sure that I love Python!" +
+                "But now I get to love Java more and more. But what is the answer after all?" +
+                "Can I find it out clearly? I don't know.";
+        Searcher searcher = new Searcher();
+        System.out.println(searcher.completeSearch(text, 4));
+
     }
 
 }
