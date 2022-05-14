@@ -37,7 +37,7 @@ public class Main {
 
         String text = "Do I love Java or python more? In the beginning of Java lessons I was sure that I love Python!" +
                 "But now I get to love Java more and more. But what is the answer after all?" +
-                "Can I find it our clearly? I don't know.";
+                "Can I find it out clearly? I don't know.";
         Searcher searcher = new Searcher();
         System.out.println(searcher.completeSearch(text, 4));
 

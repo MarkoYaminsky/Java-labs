@@ -9,12 +9,12 @@ import java.util.regex.Pattern;
 public class Searcher implements ISearcher {
 
     @Override
-    public void removeSentencesWhichEndWithSymbol(Character symbol, ArrayList<String> list, String sentences) {
+    public void removeSentencesWhichEndWithSymbol(char symbol, ArrayList<String> list, String sentences) {
         int index = sentences.lastIndexOf(symbol) + 1;
         String question = sentences.substring(index);
 
         if (!question.equals("")) {
-            list.add(question);
+            list.add(question.trim());
         }
     }
 
@@ -30,7 +30,7 @@ public class Searcher implements ISearcher {
             } else if (sentences.contains("!")) {
                 removeSentencesWhichEndWithSymbol('!', resultList, sentences);
             } else if (!sentences.equals("")) {
-                resultList.add(sentences);
+                resultList.add(sentences.trim());
             }
         }
 
@@ -38,10 +38,10 @@ public class Searcher implements ISearcher {
     }
 
     @Override
-    public Set<String> findWordsWithMyLength(String txt, int size) {
-        String reg = String.format("\\b\\w{%d}\\b", size);
+    public Set<String> findWordsWithMyLength(String text, int length) {
+        String reg = String.format("\\b\\w{%d}\\b", length);
         Pattern pattern = Pattern.compile(reg);
-        Matcher matcher = pattern.matcher(txt);
+        Matcher matcher = pattern.matcher(text);
         Set<String> words = new HashSet<>();
         while (matcher.find())
             words.add(matcher.group().toLowerCase());
@@ -50,9 +50,9 @@ public class Searcher implements ISearcher {
     }
 
     @Override
-    public Set<String> completeSearch(String txt, int size) {
-        txt = findQuestionSentences(txt);
-        return findWordsWithMyLength(txt, size);
+    public Set<String> completeSearch(String text, int length) {
+        text = findQuestionSentences(text);
+        return findWordsWithMyLength(text, length);
     }
 
 }
